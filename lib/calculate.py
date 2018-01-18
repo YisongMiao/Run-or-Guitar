@@ -107,7 +107,7 @@ def calculate_reward(total_reward, input_mile_dict, input_speed_dict):
     speed_list = []
     for player in input_mile_dict:
         result_dict[player] = {}
-        result_dict[player]['basic_reward'] = total_reward / 5.0
+        result_dict[player]['basic_reward'] = total_reward * 0.33 / 5.0
 
         result_dict[player]['total_Km'] = input_mile_dict[player][len(input_mile_dict[player]) - 1][1]
         mile_inverted_dict[input_mile_dict[player][len(input_mile_dict[player]) - 1][1]] = player
