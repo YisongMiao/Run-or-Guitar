@@ -13,7 +13,6 @@ def main():
     cwd = os.getcwd()
     parent_path = Path(cwd).parent
     data_dir = os.path.join(str(parent_path), A.dir_name)
-    print(data_dir)
 
     miles_dict = {}
     speed_dict = {}
@@ -23,7 +22,6 @@ def main():
         speed_dict[dir_name] = []
         for file_name in os.listdir(os.path.join(data_dir, dir_name)):
             if file_name.endswith('csv'):
-                print(dir_name, file_name)
                 file = open(os.path.join(os.path.join(data_dir, dir_name), file_name), 'r')
                 mile_sum = 0
                 running_time_sum = 0
@@ -54,8 +52,7 @@ def main():
             if index != len(entry_names) - 1:
                 writefile.write(',')
         writefile.write('\n')
-
-    print(result_dict)
+    print('Result Writen to', os.path.join(str(parent_path), A.output))
 
 
 def get_date_span(input_date):
@@ -117,7 +114,6 @@ def calculate_reward(total_reward, input_mile_dict, input_speed_dict):
         speed_inverted_dict[input_speed_dict[player][len(input_speed_dict[player]) - 1][1]] = player
         speed_list.append(input_speed_dict[player][len(input_speed_dict[player]) - 1][1])
 
-    print(result_dict)
     mile_list = sorted(mile_list, reverse=True)
     speed_list = sorted(speed_list, reverse=True)
 
